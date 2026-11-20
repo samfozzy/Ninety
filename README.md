@@ -7,7 +7,7 @@ Future Health Digital Innovation Challenge 2026 · Fertility · Challenge 01: Ma
 - **Live prototype (no login):** https://samfozzy.github.io/Ninety/
 - **Submission deck:** [docs/Ninety-FHDIC-submission.pdf](docs/Ninety-FHDIC-submission.pdf)
 - **Solution deck:** [docs/Ninety-solution-deck.pdf](docs/Ninety-solution-deck.pdf)
-- **Demo video:** [link to follow]
+- **Demo video (2:30):** https://samfozzy.github.io/Ninety/docs/Ninety-demo.mp4
 
 > Prototype on synthetic data. Not medical advice and not a medical device. Clinics and labs shown are illustrative.
 
@@ -74,6 +74,7 @@ index.html                 the prototype (patient app, clinician console, eviden
 tests/test_engine.js       triage-engine tests
 docs/Ninety-FHDIC-submission.pdf   challenge submission deck
 docs/Ninety-solution-deck.pdf      solution deck
+docs/Ninety-demo.mp4               demo video
 README.md
 ```
 

@@ -3336,6 +3336,7 @@ function newCode(){ var c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = 'NIN-'; for(
 
 document.addEventListener('click', function(e){
   var el = e.target.closest('[data-act]'); if(!el) return;
+  if(pendingRender){ clearTimeout(pendingRender); pendingRender = null; }
   var act = el.dataset.act, v = el.dataset.v, k = el.dataset.k;
   if(act !== 'delete') S.delArmed = false;
   switch(act){
@@ -3397,7 +3398,8 @@ document.addEventListener('input', function(e){
   if(f === '__report'){ S.reportText = e.target.value; return; }
   S.answers[f] = e.target.value === '' ? '' : +e.target.value; S.example = false;
 });
-document.addEventListener('change', function(e){ var f = e.target.dataset && e.target.dataset.field; if(f && f !== '__report') render(); });
+var pendingRender = null;
+document.addEventListener('change', function(e){ var f = e.target.dataset && e.target.dataset.field; if(f && f !== '__report'){ clearTimeout(pendingRender); pendingRender = setTimeout(function(){ pendingRender = null; var a = document.activeElement; if(a && a.dataset && a.dataset.field) return; render(); }, 400); } });
 document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ $('#hide').classList.toggle('on'); } });
 
 (function tick(){ var d = new Date(); $('#clock').textContent = d.toTimeString().slice(0,5); setTimeout(tick, 30000); })();
